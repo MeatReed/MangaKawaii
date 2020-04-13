@@ -43,3 +43,11 @@ lirescan.mangaDetails('https://www.mangakawaii.com/manga/kimetsu-no-yaiba').then
   console.log(data)
 })
 ```
+
+### lirescan.pageList(urlManga, chapter)
+Récupère toutes les pages d'un chapitre
+```js
+lirescan.pageList('https://www.mangakawaii.com/manga/kimetsu-no-yaiba', 27).then(data => {
+  console.log(data)
+})
+```

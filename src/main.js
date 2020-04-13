@@ -17,7 +17,7 @@ module.exports.allManga = (page) => {
       return data
     })
     .catch(function(err){
-      return 'Une erreur est survenue : ' + err
+      return 'Une erreur est survenue !'
     })
 }
 
@@ -35,7 +35,7 @@ module.exports.latestManga = () => {
       return data
     })
     .catch(function(err){
-      return 'Une erreur est survenue !' + err
+      return 'Une erreur est survenue !'
     })
 }
 
@@ -54,7 +54,7 @@ module.exports.searchManga = (query) => {
       return data
     })
     .catch(function(err){
-      return 'Une erreur est survenue !' + err
+      return 'Une erreur est survenue !'
     })
 }
 
@@ -72,7 +72,7 @@ module.exports.chapterList = (urlManga) => {
       return data
     })
     .catch(function(err){
-      return 'Une erreur est survenue !' + err
+      return 'Une erreur est survenue !'
     })
 }
 
@@ -87,16 +87,23 @@ module.exports.mangaDetails = (urlManga) => {
       }
     })
     .catch(function(err){
-      return 'Une erreur est survenue !' + err
+      return 'Une erreur est survenue !'
     })
 }
 
-// module.exports.pageList = (urlManga, chapter, page) => {
-//   return cloudscraper.get(urlManga + '/' + chapter + page)
-//     .then(function(html){
-//       console.log(html)
-//     })
-//     .catch(function(err){
-//       return 'Une erreur est survenue !' + err
-//     })
-// }
+module.exports.pageList = (urlManga, chapter) => {
+  return cloudscraper.get(urlManga + '/' + chapter + '/1')
+    .then(function(html){
+      let data = []
+      $('#page-list option', html).each((i, elem) => {
+        data.push({
+          page: $(elem).text(),
+          url: 'https://cdn.mangakawaii.com/uploads/manga/kimetsu-no-yaiba/chapters/' + chapter + '/' + $(elem).text() + '.jpg'
+        })
+      })
+      return data
+    })
+    .catch(function(err){
+      return 'Une erreur est survenue !'
+    })
+}
