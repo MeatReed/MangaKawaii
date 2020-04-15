@@ -51,3 +51,11 @@ lirescan.pageList('https://www.mangakawaii.com/manga/kimetsu-no-yaiba', 27).then
   console.log(data)
 })
 ```
+
+## BONUS
+Pour télécharger tout les mangas sur MangaKawaii faites juste
+```
+node downloader
+```
+
+C'est moi qui régale tkt
