@@ -1,53 +1,53 @@
 # MangaKawaii
 
 ```js
-const lirescan = require("./src/main")
+const mangakawaii = require("./src/main")
 ```
-### lirescan.allManga(page: int)
+### mangakawaii.allManga(page: int)
 Récupère tous les mangas.
 
 ```js
-lirescan.allManga(1).then(data => {
+mangakawaii.allManga(1).then(data => {
   console.log(data)
 })
 ```
 
-### lirescan.latestManga()
+### mangakawaii.latestManga()
 Récupère les mangas ayant eux des chapitres ajoutés récemment.
 ```js
-lirescan.latestManga().then(data => {
+mangakawaii.latestManga().then(data => {
   console.log(data)
 })
 ```
 
-### lirescan.searchManga(query)
+### mangakawaii.searchManga(query)
 Recherche des mangas.
 ```js
-lirescan.searchManga('kimetsu').then(data => {
+mangakawaii.searchManga('kimetsu').then(data => {
   console.log(data)
 })
 ```
 
-### lirescan.chapterList(urlManga)
+### mangakawaii.chapterList(urlManga)
 Liste tous les chapitres d'un manga.
 ```js
-lirescan.chapterList('https://www.mangakawaii.com/manga/kimetsu-no-yaiba').then(data => {
+mangakawaii.chapterList('https://www.mangakawaii.com/manga/kimetsu-no-yaiba').then(data => {
   console.log(data)
 })
 ```
 
-### lirescan.mangaDetails(urlManga)
+### mangakawaii.mangaDetails(urlManga)
 Détaille un manga.
 ```js
-lirescan.mangaDetails('https://www.mangakawaii.com/manga/kimetsu-no-yaiba').then(data => {
+mangakawaii.mangaDetails('https://www.mangakawaii.com/manga/kimetsu-no-yaiba').then(data => {
   console.log(data)
 })
 ```
 
-### lirescan.pageList(urlManga, chapter)
+### mangakawaii.pageList(urlManga, chapter)
 Récupère toutes les pages d'un chapitre
 ```js
-lirescan.pageList('https://www.mangakawaii.com/manga/kimetsu-no-yaiba', 27).then(data => {
+mangakawaii.pageList('https://www.mangakawaii.com/manga/kimetsu-no-yaiba', 27).then(data => {
   console.log(data)
 })
 ```
