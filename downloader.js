@@ -1,4 +1,4 @@
-const lirescan = require("./src/main")
+const mangakawaii = require("./src/main")
 const fetch = require('node-fetch')
 const axios = require('axios')
 const fs = require('fs')
@@ -8,7 +8,7 @@ if (!fs.existsSync('output')) {
 	fs.mkdirSync('output')
 }
 
-lirescan.allManga().then(async data => {
+mangakawaii.allManga().then(async data => {
   for (let i = 0; i < data.length; i++) {
     await downloadManga(data[i])
     console.log(`\tDone oid: ${data[i].name}`)
@@ -16,7 +16,7 @@ lirescan.allManga().then(async data => {
 })
 
 function downloadManga(manga) {
-	return lirescan.mangaDetails(manga.url)
+	return mangakawaii.mangaDetails(manga.url)
 		.then(data => {
 			return new Promise((resolve, reject) => {
         if (!fs.existsSync('output/' + sanitize(data.name))) {
@@ -37,7 +37,7 @@ function downloadManga(manga) {
 			})
 		})
 		.then(async data => {
-      const chapters = await lirescan.chapterList(data.url)
+      const chapters = await mangakawaii.chapterList(data.url)
       let outDir = 'output/' + sanitize(data.name)
 
       if (!fs.existsSync(outDir + '/Chapiters/')) {
